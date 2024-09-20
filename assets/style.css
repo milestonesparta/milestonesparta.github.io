@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap");
+
+* {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+html,
+body {
+    min-height: 100%;
+    background: #fff;
+    color: #000;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.scroll-container {
+    overflow: auto;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+}
+
+.scroll-area {
+    scroll-snap-align: start;
+    height: 100vh;
+    font-size: 60px;
+    color: white;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgb(107, 124, 217);
+    background: linear-gradient(
+        225deg,
+        rgba(107, 124, 217, 1) 0%,
+        rgba(10, 110, 189, 1) 50%,
+        rgba(22, 75, 96, 1) 100%
+    );
+    overflow-y: hidden;
+}
+
+.scroll-area.style2 {
+    color: #164b60;
+    background: white;
+}
+
+.scroll-area .text {
+    text-align: center;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.scroll-area p {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    padding: 70px 30px;
+}
+
+.scroll-area.style2 p {
+    text-align: justify;
+    padding: 40px 30px;
+    max-width: 1000px;
+}
+
+.scroll-area .bella {
+    transform: translateX(10px);
+    margin-top: -100px;
+}
+
+.scroll-area .box {
+    font-size: 14px;
+    padding: 5px 13px;
+    color: white;
+    background-color: #164b60;
+    border-radius: 18px;
+    text-decoration: none;
+}
+
+.scroll-area .box img {
+    -webkit-animation: bounce 0.6s ease infinite alternate;
+}
+
+@-webkit-keyframes bounce {
+    0% {
+        transform: translateY(3px);
+        text-shadow: 0 5px 0 #ccc, 0 2px 3px rgba(0, 0, 0, 1);
+    }
+    100% {
+        transform: translateY(-2px);
+        text-shadow: 0 50px 0 #000000, 0 0px 20px rgba(0, 0, 0, 0.8);
+    }
+}
+
+audio {
+    margin-top: -50px;
+    margin-bottom: 80px;
+}
+
+.box a {
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#ok {
+    user-select: none;
+    transition: opacity 0.2s;
+}
+
+#ok:hover {
+    cursor: pointer;
+    background: #053056;
+}
+
+@media (max-width: 1000px) {
+    .scroll-area {
+        background-image: url("images/Slide\ Pertama\ gradient.png");
+
+        /* Full height */
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .scroll-area.style2 {
+        background-image: url("images/latar\ putih.png");
+
+        /* Full height */
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .scroll-area p {
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        padding: 70px 30px;
+    }
+
+    .scroll-area.style2 p {
+        text-align: justify;
+        padding: 40px 30px;
+    }
+
+    .scroll-area.style2 .muka {
+        width: 80%;
+    }
+
+    .scroll-area.style2 .muka2 {
+        width: 95%;
+        margin-top: -100px;
+    }
+}

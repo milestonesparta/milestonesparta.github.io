@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Message for You</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            transition: background-color 1s, color 1s;
+            overflow: hidden;
+        }
+
+        .section {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease, display 0.5s ease;
+            padding: 1rem;
+        }
+
+        .active {
+            opacity: 0;
+            display: flex;
+            animation: fadeIn 1.2s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: 0.4;
+            transition: all 30s linear;
+            animation: breathing 6s ease-in-out infinite;
+        }
+
+        @keyframes breathing {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            75% {
+                transform: scale(0.8);
+                opacity: 0.2;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .text-4xl {
+                font-size: 1.875rem;
+            }
+
+            .text-3xl {
+                font-size: 1.5rem;
+            }
+
+            .text-xl {
+                font-size: 1.125rem;
+            }
+        }
+
+        .scroll-indicator {
+            width: 12px;
+            margin: 0 auto;
+            position: fixed;
+            bottom: 50px;
+            left: 50%;
+            transform: scale(1.25);
+            opacity: .5;
+
+            &::before,
+            &::after {
+                content: '';
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            &::before {
+                width: 12px;
+                height: 12px;
+                border-radius: 10px;
+                border: 1px solid red;
+                animation: dot 3s infinite ease-in-out;
+            }
+
+            &::after {
+                width: 7px;
+                height: 7px;
+                border-right: 1px solid red;
+                border-bottom: 1px solid red;
+                transform: rotate(45deg);
+                animation: arrow 3s infinite ease-in-out;
+                animation-delay: .75s;
+                opacity: .25;
+            }
+
+            &>div {
+                display: block;
+
+                &::before,
+                &::after {
+                    content: '';
+                    display: block;
+                    margin: 5px auto;
+                    border-radius: 10px;
+                    border: 1px solid red;
+                    animation: dot 3s infinite ease-in-out;
+                }
+
+                &::before {
+                    width: 8px;
+                    height: 8px;
+                    animation-delay: .25s;
+                }
+
+                &::after {
+                    width: 6px;
+                    height: 6px;
+                    animation-delay: .5s;
+                }
+            }
+        }
+
+        @keyframes dot {
+            0% {
+                transform: scale(.75);
+                opacity: .25;
+            }
+
+            25% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(.75);
+                opacity: .25;
+            }
+        }
+
+        @keyframes arrow {
+            0% {
+                transform: scale(.75) rotate(45deg);
+                opacity: .25;
+            }
+
+            25% {
+                transform: scale(1) rotate(45deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(.75) rotate(45deg);
+                opacity: .25;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <audio id="bgMusic" loop preload="auto">
+        <source src="assets/audio/Paul Partohap - P.S. I LOVE YOU.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="content">
+        <section id="section1" class="section active">
+            <div class="text-center z-10">
+                <h1 class="text-4xl mb-4">Dear, Atqiya Haydar</h1>
+                <p class="text-xl mb-8">I have something to share with you.</p>
+                <button id="beginButton" onclick="startJourney()"
+                    class="bg-white text-black px-6 py-3 rounded-full hover:bg-pink-200 transition-all duration-300">
+                    Start
+                </button>
+            </div>
+
+        </section>
+
+        <section id="section2" class="section">
+            <div class="text-center z-10">
+                <h2 class="text-3xl mb-4">From the moment we met...</h2>
+                <p class="text-xl">I felt a connection I can't explain.</p>
+            </div>
+            <div class="scroll-indicator">
+                <div class="dots"></div>
+            </div>
+
+
+        </section>
+
+        <section id="section3" class="section">
+            <div class="text-center z-10">
+                <h2 class="text-3xl mb-4">I have followed your journey for a while now.</h2>
+                <p class="text-xl max-w-[80%] mx-auto">and every step just reinforces my belief that you are the right
+                    person to be my kasuh. Not only because of your wisdom, but also because of your dedication and
+                    sincerity.
+                    <b> It's you, Atqiya.</b>
+                </p>
+            </div>
+            <div class="scroll-indicator">
+                <div class="dots"></div>
+            </div>
+
+
+        </section>
+
+        <section id="section4" class="section">
+            <div class="text-center z-10">
+                <h2 class="text-3xl mb-4">Every moment with you is joyful...</h2>
+                <p class="text-xl mb-8">Memory we create together, a treasure.</p>
+
+                <img src="/assets/images/memory.jpg" alt="" class="w-[80%] max-w-[200px] mx-auto rounded-lg">
+            </div>
+            <div class="scroll-indicator">
+                <div class="dots"></div>
+            </div>
+
+
+        </section>
+
+        <section id="section5" class="section">
+            <div class="text-center z-10">
+                <h2 class="text-3xl mb-4">My heart has found its home...</h2>
+                <p class="text-xl max-w-[80%] mx-auto">After all this time of knowing you, I can tell that you are truly
+                    inspiring. A person with a big heart, filled with care for others. I really believe you'd
+                    make the perfect Kasuh, Atqiya.</p>
+            </div>
+            <div class="scroll-indicator">
+                <div class="dots"></div>
+            </div>
+
+
+        </section>
+
+        <section id="section6" class="section">
+            <div class="text-center z-10">
+                <video autoplay="" muted="" loop="" id="beforekasuh" class="transition-all translate-x-[30px]"
+                    style="display: block; transform: scale(0.8);">
+                    <source src="/assets/video/1.webm" type="video/webm">
+                </video>
+                <video autoplay="" muted="" loop="" id="afterkasuh" class="transition-all translate-x-[30px]"
+                    style="display: none; transform: scale(0.8);">
+                    <source src="/assets/video/2.webm" type="video/webm">
+                </video>
+                <h2 class="text-3xl mb-4">With all the love in my heart...</h2>
+                <p id="responseText" class="text-xl mb-8">Will you be my Kasuh?</p>
+                <div>
+                    <button id="yesButton" onclick="showHappy()"
+                        class="bg-pink-500 text-white px-6 py-3 rounded-full mr-4 transition-all duration-300">
+                        Yes, I will
+                    </button>
+                    <button id="noButton" onmouseover="moveButton()" onclick="moveButton()"
+                        class="bg-pink-500 text-white px-6 py-3 rounded-full  transition-all duration-300">
+                        No
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <script>
+        let currentSection = 1;
+        const totalSections = 6;
+        let journeyStarted = false;
+        let isScrolling = false;
+
+        function createBlobs() {
+            const colors = ['#FFB6C1', '#FFC0CB', '#FF69B4', '#FFA07A'];
+            for (let i = 0; i < 3; i++) {
+                const blob = document.createElement('div');
+                blob.classList.add('blob');
+                blob.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                blob.style.width = `${Math.random() * 300 + 100}px`;
+                blob.style.height = blob.style.width;
+                blob.style.zIndex = -1;
+                positionBlob(blob);
+                document.body.appendChild(blob);
+            }
+        }
+
+        function positionBlob(blob) {
+            blob.style.left = `${Math.random() * 100}vw`;
+            blob.style.top = `${Math.random() * 100}vh`;
+        }
+
+        function moveBlobs() {
+            document.querySelectorAll('.blob').forEach(blob => {
+                positionBlob(blob);
+            });
+        }
+
+        function startJourney() {
+            journeyStarted = true;
+            document.getElementById('bgMusic').play();
+            document.body.style.backgroundColor = '#FFF0F5';
+            document.body.style.color = '#FF1493';
+            document.getElementById('beginButton').style.display = 'none';
+            createBlobs();
+            setInterval(moveBlobs, 30000);
+            nextSection();
+        }
+
+        function nextSection() {
+            if (currentSection < totalSections && !isScrolling) {
+                isScrolling = true;
+                document.getElementById(`section${currentSection}`).classList.remove('active');
+                currentSection++;
+                document.getElementById(`section${currentSection}`).classList.add('active');
+                setTimeout(() => { isScrolling = false; }, 400);
+            }
+        }
+
+        function previousSection() {
+            if (currentSection > 2 && !isScrolling) {
+                isScrolling = true;
+                document.getElementById(`section${currentSection}`).classList.remove('active');
+                currentSection--;
+                document.getElementById(`section${currentSection}`).classList.add('active');
+                setTimeout(() => { isScrolling = false; }, 400);
+            }
+        }
+
+        function moveButton() {
+            const button = document.getElementById('noButton');
+            const maxX = window.innerWidth - button.offsetWidth;
+            const maxY = window.innerHeight - button.offsetHeight;
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            button.style.position = 'fixed';
+            button.style.left = `${newX}px`;
+            button.style.top = `${newY}px`;
+        }
+
+        function showHappy() {
+            document.getElementById('beforekasuh').style.display = 'none';
+            document.getElementById('afterkasuh').style.display = 'block';
+
+            document.getElementById('responseText').innerText = 'Thank you, my Kasuh, Atqiya Haydar.';
+            document.getElementById('noButton').style.display = 'none';
+            document.getElementById('yesButton').style.display = 'none';
+        }
+
+        function closeFinalMessage() {
+            document.getElementById('finalMessage').classList.add('hidden');
+        }
+
+        window.addEventListener('wheel', (e) => {
+            if (journeyStarted) {
+                if (e.deltaY > 10) {
+                    nextSection();
+                } else if (e.deltaY < 10) {
+                    previousSection();
+                }
+            }
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (journeyStarted) {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    nextSection();
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    previousSection();
+                }
+            }
+        });
+
+        let touchStartY;
+        window.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (journeyStarted) {
+                const touchEndY = e.touches[0].clientY;
+                const diff = touchStartY - touchEndY;
+                if (diff > 10) {
+                    nextSection();
+                } else if (diff < -10) {
+                    previousSection();
+                }
+                touchStartY = touchEndY;
+            }
+        });
+    </script>
+</body>
+
+</html>
